@@ -18,7 +18,7 @@ def pass_password(opsys = opsys):
     tmp_name = temp + os.sep + rand_name()
     modulepath = __file__[:-11]
     if opsys == 'Windows':
-        subprocess.run([sys.executable,'/wait', 'cmd', '-K', 'python', modulepath+'getpasswd.py', tmp_name], shell=True)
+        subprocess.run(["start","/wait", "cmd", "/C", 'python', modulepath+'getpasswd.py', tmp_name], shell=True)
     elif opsys == 'Linux':
         os.system('gnome-terminal ' + '-- ' + 'python {}getpasswd.py {}; exit 0'.format(modulepath, tmp_name) +' -- wait ')
         while True:
