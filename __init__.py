@@ -34,3 +34,17 @@ def pass_password(opsys = opsys):
         pw = foo.readline()
     os.remove(tmp_name)
     return pw
+
+class secret():
+    '''object to save user and password - semi hidden'''
+    
+    def __init__(self):
+        self.pw = pass_password()
+        self.user = 'not specified'
+    
+    def user(self, x):
+        '''define user name'''
+        self.user = x
+        
+    def __repr__ (self):
+        return 'user: {} \n  pw: {}'.format(self.user, '*'*5)
